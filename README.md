@@ -19,6 +19,11 @@ grant all privileges to shakib034;
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p3.png)
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/P4.png)
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p2.png)
+
+## Checking current user name
+```
+show user
+```
 ## Checking the existing table in database.
 ```
 select table_name from user_tables;
