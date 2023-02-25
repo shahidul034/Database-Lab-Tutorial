@@ -75,7 +75,7 @@ foreign key (course_no) references course(course_no)
 ```
 > When you observe the course table, they have another foreign key keyword referencing the dept_id from the "dept" table. We insert something in the course table. We must check whether this dept_id exists in the "dept" table.
 
-# ------DDL-------
+# DDL
 ## Add column in the table
 > We add a column in the dept table which is location.
 > 
@@ -100,7 +100,7 @@ alter table dept rename column location to location2;
 ```
 alter table dept drop column location2;
 ```
-# ---DML---
+# DML
 ## Insert the data in our table
 ```
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(7,'CSE','EE',120);
