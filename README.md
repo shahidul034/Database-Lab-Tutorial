@@ -173,3 +173,35 @@ insert into dept(dept_id,dept_name,faculty,no_of_student,location2)values(12,'UR
 ```
 delete from  dept where dept_id=12;
 ```
+## Save the sql command output in csv file
+> Simply change the folder path and your sql command.
+```
+SET MARKUP XML ON
+SET HEADING OFF
+SET PAGESIZE 0
+SET FEEDBACK OFF
+SPOOL C:\Users\andromeda\Desktop\file.csv
+SELECT *
+FROM dept;
+SPOOL OFF
+```
+## Save the sql command output in xml file
+> Simply change the folder path and your sql command.
+```
+SET COLSEP ","
+SET HEADING OFF
+SET PAGESIZE 0
+SET FEEDBACK OFF
+SPOOL C:\Users\andromeda\Desktop\file.csv
+SELECT *
+FROM dept;
+SPOOL OFF
+```
+## Save the sql command output in txt file
+> Simply change the folder path and your sql command.
+```
+SPOOL C:\Users\andromeda\Desktop\file.txt
+SELECT *
+FROM dept;
+SPOOL OFF
+```
