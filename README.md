@@ -19,6 +19,11 @@ grant all privileges to shakib034;
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p3.png)
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/P4.png)
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p2.png)
+## Run the SQL command
+> You can run SQL script by using the SQL command line. Besides, you can write your SQL command in a txt file and save the txt file as a SQL extension. Then, type the below command in the SQL command line.
+```
+start C:\Users\andromeda\Desktop\file.sql
+```
 
 ## Checking current user name
 ```
