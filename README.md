@@ -141,6 +141,7 @@ Now, we find the rows from the "dept" table, which have 120 students using the s
 select * from dept where no_of_student=120;
 ```
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/select.png)
+
 We find the dept_name, which course name is "database systems".
 ```
 select * from dept where dept_id=(select dept_id from course where course_name='database systems');
