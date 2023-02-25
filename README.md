@@ -19,4 +19,23 @@ grant all privileges to shakib034;
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p3.png)
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/P4.png)
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p2.png)
-
+## First, we check the existing table in our database.
+```
+select table_name from user_tables;
+```
+![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/show_table_name.png)
+It shows that we have already two tables in my database. We need to drop those database for fresh start. You can use this command for dropping any database.
+```
+drop table department;
+drop table course;
+```
+## First, we create the table "dept". Here, we can see primary key is dept_id. Because, it can uniquely identify the each in the table.
+```
+Create table dept(
+dept_id number(20),
+dept_name varchar(30),
+faculty varchar(30),
+no_of_student number(20),
+primary key(dept_id)
+);
+```
