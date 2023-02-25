@@ -73,12 +73,14 @@ When you observe the course table, they have another foreign key keyword referen
 # ------DDL-------
 ## Add column in the table
 We add a column in the dept table which is location.
+
 Command structure: alter table **table_name** add **column_name** **column_definition**;
 ```
 alter table dept add location char(20);
 ```
 ## Modify column definition in the table
 Command structure: alter table **table_name** modify **column_name** **column_definition**;
+
 We modify the location data types char(20) to varchar(23);
 ```
 alter table dept modify location varchar(23);
@@ -161,6 +163,7 @@ We add an extra row to perform the delete operation in the dept table.
 insert into dept(dept_id,dept_name,faculty,no_of_student,location2)values(12,'URP','CE',60,'khulna');
 ```
 Now we delete the row from the dept table where dept_id is 12.
+
 Command structure: delete from  **table_name** where **condition**;
 ```
 delete from  dept where dept_id=12;
