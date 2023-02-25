@@ -69,6 +69,31 @@ foreign key (course_no) references course(course_no)
 );
 ```
 When you observe the course table ,they have another keyword which is foreign key and it references the dept_id from "dept". When we insert something in course table. We need to check this dept_id is existed or not in "dept" table.
+
+### ------DDL-------
+## Add column in the table
+We add a column in the dept table which is location.
+Command structure: alter table **table_name** add **column_name** **column_definition**;
+```
+alter table dept add location char(20);
+```
+## Modify column definition in the table
+Command structure: alter table **table_name** modify **column_name** **column_definition**;
+We modify the location data types char(20) to varchar(23);
+```
+alter table dept modify location varchar(23);
+```
+## Rename the column name
+Command structure: alter table **table_name** rename **column_name** to **column_name**;
+```
+alter table dept rename column location to location2;
+```
+## Drop the column from table
+Command structure: alter table **table_name** drop column **column_name**;
+```
+alter table dept drop column location2;
+```
+### ---DML---
 ## Insert the data in our table
 ```
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(7,'CSE','EE',120);
@@ -109,26 +134,7 @@ Here ,we inserted the course_no "MME1101" and course_id "9" in the course table.
 As, course table refers the dept table and course id 9 does not exist in dept table. So, it shows this error.
 
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/error.png)
-
-### ------DDL-------
-## Add column in the table
-We add a column in the dept table which is location.
-Command structure: alter table **table_name** add **column_name** **column_definition**;
-```
-alter table dept add location char(20);
-```
-## Modify column definition in the table
-Command structure: alter table **table_name** modify **column_name** **column_definition**;
-We modify the location data types char(20) to varchar(23);
-```
-alter table dept modify location varchar(23);
-```
-## Rename the column name
-Command structure: alter table **table_name** rename **column_name** to **column_name**;
-```
-alter table dept rename column location to location2;
-```
-## Select command
+## Showing the data in a table
 Now ,we find the rows from department table which have 120 students using select command.
 
 ```
@@ -143,4 +149,18 @@ select * from dept where dept_id=(select dept_id from course where course_name='
 
 Here, we add extra select command in where condition to find the dept_id in dept table. This type of query is called subquery.
 
-
+## Updating the data in a table
+Now we want to update the value of course name from course table where course_no "EEE1101";
+```
+update course set course_name='Digital Electronics' where course_no='EEE1101';
+```
+## Deleting row from a table
+We add extra row so we can perform delete operation in dept table.
+```
+insert into dept(dept_id,dept_name,faculty,no_of_student,location2)values(12,'URP','CE',60,'khulna');
+```
+Now we delete the row from dept table where dept_id is 12.
+Command structure: delete from  **table_name** where **condition**;
+```
+delete from  dept where dept_id=12;
+```
