@@ -19,19 +19,19 @@ grant all privileges to shakib034;
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p3.png)
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/P4.png)
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p2.png)
-## First, we check the existing table in our database.
+## Checking the existing table in database.
 ```
 select table_name from user_tables;
 ```
 
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/show_table_name.png)
 
-It shows that we have already two tables in my database. We need to drop those database for fresh start. You can use this command for dropping any database.
+It shows that we already have two tables in my database. So we need to drop those tables from the database for a fresh start. You can use this command to drop any table.
 ```
 drop table department;
 drop table course;
 ```
-First, we create the table "dept". Here, we can see primary key is dept_id. Because, it can uniquely identify the each in the table.
+First, we create the table "dept". Here, we can see that the primary key is dept_id because it uniquely identifies each row in the table.
 ```
 Create table dept(
 dept_id number(20),
@@ -41,7 +41,7 @@ no_of_student number(20),
 primary key(dept_id)
 );
 ```
-We also create course, book  and relation table.
+We also create a course, book and relation table.
 ```
 Create table course(
 course_no varchar(20),
@@ -68,7 +68,7 @@ foreign key (book_no) references book(book_no),
 foreign key (course_no) references course(course_no) 
 );
 ```
-When you observe the course table ,they have another keyword which is foreign key and it references the dept_id from "dept". When we insert something in course table. We need to check this dept_id is existed or not in "dept" table.
+When you observe the course table, they have another foreign key keyword referencing the dept_id from the "dept" table. We insert something in the course table. We must check whether this dept_id exists in the "dept" table.
 
 ### ------DDL-------
 ## Add column in the table
