@@ -98,8 +98,8 @@ alter table dept drop column location2;
 ```
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(7,'CSE','EE',120);
 ```
-Here ,"dept" refers the table name and we also insert values according to table columns.
-We also insert other values in the other tables.
+Here, "dept" refers to the table name, and we also insert values according to table columns.
+We also insert values into the other tables.
 
 ## Insert the data in the table
 ```
@@ -125,41 +125,41 @@ insert into relation(book_no,course_no)values(15,'ME3101');
 insert into relation(book_no,course_no)values(13,'CSE3105');
 
 ```
-All the data are inserted. Now ,we do some experiment here. We run the command below.
+All the data are inserted. Now, we do some experiments here. We run the command below.
 
 ```
 insert into course(course_no,course_name,year_semister,credit,dept_id)values('MME1101','Basic structure of materials',11,3.00,9);
 ```
-Here ,we inserted the course_no "MME1101" and course_id "9" in the course table. After running the command, we found this error.
-As, course table refers the dept table and course id 9 does not exist in dept table. So, it shows this error.
+We inserted the course_no "MME1101" and course_id "9" in the course table. After running the command, we found this error.
+The course table refers to the dept table, and course id "9" does not exist in the dept table. So, it shows this error.
 
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/error.png)
 ## Showing the data in a table
-Now ,we find the rows from department table which have 120 students using select command.
+Now, we find the rows from the "dept" table, which have 120 students using the select command.
 
 ```
 select * from dept where no_of_student=120;
 ```
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/select.png)
-We find the dept_name which have course "database systems".
+We find the dept_name, which course name is "database systems".
 ```
 select * from dept where dept_id=(select dept_id from course where course_name='database systems');
 ```
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/subquery.png)
 
-Here, we add extra select command in where condition to find the dept_id in dept table. This type of query is called subquery.
+Here, we add extra select command by adding an additional condition to find the dept_id in the "dept" table. This type of query is called a subquery.
 
 ## Updating the data in a table
-Now we want to update the value of course name from course table where course_no "EEE1101";
+Now we want to update the value of the course name from the course table where course_no is "EEE1101";
 ```
 update course set course_name='Digital Electronics' where course_no='EEE1101';
 ```
 ## Deleting row from a table
-We add extra row so we can perform delete operation in dept table.
+We add an extra row to perform the delete operation in the dept table.
 ```
 insert into dept(dept_id,dept_name,faculty,no_of_student,location2)values(12,'URP','CE',60,'khulna');
 ```
-Now we delete the row from dept table where dept_id is 12.
+Now we delete the row from the dept table where dept_id is 12.
 Command structure: delete from  **table_name** where **condition**;
 ```
 delete from  dept where dept_id=12;
