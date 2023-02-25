@@ -173,7 +173,8 @@ insert into dept(dept_id,dept_name,faculty,no_of_student,location2)values(12,'UR
 ```
 delete from  dept where dept_id=12;
 ```
-## Save the sql command output in csv file
+# Save the SQL command output
+## Save the SQL command output in csv file
 > Simply change the folder path and your sql command.
 ```
 SET MARKUP XML ON
@@ -185,7 +186,7 @@ SELECT *
 FROM dept;
 SPOOL OFF
 ```
-## Save the sql command output in xml file
+## Save the SQL command output in xml file
 > Simply change the folder path and your sql command.
 ```
 SET COLSEP ","
@@ -197,7 +198,7 @@ SELECT *
 FROM dept;
 SPOOL OFF
 ```
-## Save the sql command output in txt file
+## Save the SQL command output in txt file
 > Simply change the folder path and your sql command.
 ```
 SPOOL C:\Users\andromeda\Desktop\file.txt
