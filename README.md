@@ -258,4 +258,9 @@ select faculty,avg(no_of_student) from dept group by faculty;
  ```
  ![alt text](https://github.com/shahidul034/BookList_database-project/blob/master/DIAGRAM%20PIC/having.png)
  
- 
+ ## Nested subquery
+ > Find the department name where the “rosen”(author) book is taught.
+```
+ select dept_name from dept where dept_id=(select dept_id from course where course_no=(select course_no from relation where book_no=(select book_no from book where author='rosen')));
+```
+ ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/subquery2.png)
