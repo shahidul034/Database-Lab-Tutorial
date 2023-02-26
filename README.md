@@ -221,3 +221,41 @@ SELECT *
 FROM dept;
 SPOOL OFF
 ```
+## Aggregate function
+We count how many row exist in dept table.
+```
+select count(*) from dept;
+ ```
+ We also give alias name to any output in select command.
+ ```
+select count(dept_name) as number_of_dept from dept;
+ ```
+We can count distinct department name in dept table.
+ ```
+select count(distinct dept_name) as number_of_dept from dept;
+ ```
+We can count average and total no. of students in dept table.
+ ```
+select avg(no_of_student) from dept;
+select sum(no_of_student) from dept;
+ ```
+We can find max and min no. of students of any department from dept table.
+ ```
+ select avg(no_of_student) from dept;
+ select avg(no_of_student) from dept;
+```
+## Group by and Having
+> Find the average of student according to faculty.
+```
+select faculty,avg(no_of_student) from dept group by faculty;
+
+```
+![alt text](https://github.com/shahidul034/BookList_database-project/blob/master/DIAGRAM%20PIC/group%20by.png)
+
+> Find the average of student according to faculty where average of student is greater than 60. 
+ ```
+ select faculty,avg(no_of_student) from dept group by faculty having avg(no_of_student)>60;
+ ```
+ ![alt text](https://github.com/shahidul034/BookList_database-project/blob/master/DIAGRAM%20PIC/having.png)
+ 
+ 
