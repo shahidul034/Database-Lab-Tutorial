@@ -1,4 +1,4 @@
-## Installation process:
+## Installation process
 > 1) Download the ([Oracle 11g Express edition](https://www.oracle.com/database/technologies/xe-prior-release-downloads.html)) and install the software.
 > 2) Remember the password during the installation because this password is used for connecting the database account.
 
