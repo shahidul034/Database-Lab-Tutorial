@@ -264,3 +264,8 @@ select faculty,avg(no_of_student) from dept group by faculty;
  select dept_name from dept where dept_id=(select dept_id from course where course_no=(select course_no from relation where book_no=(select book_no from book where author='rosen')));
 ```
  ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/subquery2.png)
+## Set Membership(AND, OR,NOT)
+Find the rows where faculty is "EE" and "CSE" string exists in course_no.
+```
+select * from dept where faculty='EE' and dept_id in (select dept_id from course where course_no like '%CSE%')
+```
