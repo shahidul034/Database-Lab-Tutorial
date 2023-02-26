@@ -184,6 +184,10 @@ insert into dept(dept_id,dept_name,faculty,no_of_student,location2)values(12,'UR
 ```
 delete from  dept where dept_id=12;
 ```
+## union, intersect, and except
+```
+select dept_name from dept where dept_name like 'E%' union select dept_name from dept where dept_name like '%M%';
+```
 # Save the SQL command output
 ## Save the SQL command output in csv file
 > Simply change the folder path and your sql command.
