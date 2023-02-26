@@ -269,3 +269,15 @@ Find the rows where faculty is "EE" and "CSE" string exists in course_no.
 ```
 select * from dept where faculty='EE' and dept_id in (select dept_id from course where course_no like '%CSE%')
 ```
+## some/all/exists/unique
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/some.png)
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/all.png)
+```
+select * from book where book_no> some(select book_no from book where book_no>=14);
+select * from book where book_no> all(select book_no from book where book_no>=14);
+```
+The exists construct returns the value true if the argument subquery is nonempty.
+```
+select * from course where year_semister>=11 and exists(select * from dept where faculty like '%EE%');
+```
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/exist.png)
