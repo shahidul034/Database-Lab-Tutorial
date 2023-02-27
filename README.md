@@ -152,7 +152,7 @@ insert into course(course_no,course_name,year_semister,credit,dept_id)values('MM
 > The course table refers to the dept table, and course id "9" does not exist in the dept table. So, it shows this error.
 
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/error.png)
-## Showing the data in a table
+## Displaying table data using SELECT command
 > Now, we find the rows from the "dept" table, which have 120 students using the select command.
 
 ```
