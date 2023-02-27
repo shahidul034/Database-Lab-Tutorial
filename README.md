@@ -170,6 +170,7 @@ select * from dept where dept_id=(select dept_id from course where course_name='
 
 ## Updating the data in a table
 > Now we want to update the value of the course name from the course table where course_no is "EEE1101";
+> Command structure: update table_name set column_name=value where condition;
 ```
 update course set course_name='Digital Electronics' where course_no='EEE1101';
 ```
