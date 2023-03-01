@@ -30,7 +30,8 @@ grant all privileges to shakib034;
 ```
 start C:\Users\andromeda\Desktop\file.sql
 ```
-
+## Oracle data types
+Here is a link about the [oracle data types.](https://www.w3resource.com/oracle/oracle-data-types.php)
 ## Checking current user name
 ```
 show user
