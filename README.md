@@ -143,6 +143,10 @@ insert into relation(book_no,course_no)values(15,'ME3101');
 insert into relation(book_no,course_no)values(13,'CSE3105');
 
 ```
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/dept_table.png)
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/course_table.png)
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/book_table.png)
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/relation_table.png)
 > All the data are inserted. Now, we do some experiments here. We run the command below.
 
 ```
