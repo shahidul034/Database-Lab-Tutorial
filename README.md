@@ -315,7 +315,9 @@ select * from course where year_semister>=11 and exists(select * from dept where
 
 > '_ _ _' matches any string of exactly three characters.
 
-```SELECT * FROM TEST WHERE NAME LIKE '___';```
+```
+SELECT * FROM TEST WHERE NAME LIKE '___';
+```
 
 >  Below command matches any string of at least three characters and at most five characters.
 
