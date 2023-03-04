@@ -321,3 +321,72 @@ select * from course where year_semister>=11 and exists(select * from dept where
 
 
 ```SELECT * FROM TEST WHERE NAME LIKE '___' or NAME LIKE '____' or NAME LIKE '_____';```
+
+## Join operations
+
+```
+select * from dept natural join course where dept_id=7;
+```
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/natural_join_with_conditon.png)
+```
+select * from dept natural join course;
+```
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/natural_join.png)
+
+```
+select dept_name,course_name from dept join course using(dept_id);
+select dept_name,course_name from dept join course on dept.dept_id=course.dept_id;
+```
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/join.png)
+
+```
+select dept_name,course_name from dept left outer join course using(dept_id);
+select dept_name,course_name from dept right outer join course using(dept_id);
+select dept_name,course_name from dept full outer join course using(dept_id);
+select dept_name,course_name from dept left outer join course on dept.dept_id=course.dept_id;
+```
+## Views
+View definition is not the same as creating a new relation by evaluating the query expression.
+
+A view of dept without their faculty,no_of_student.
+```
+create view dept_details as select dept_id,dept_name from dept;
+
+```
+Find all course in the CSE department.
+```
+create view CSE_DEPT_COURSE as select course_name from course where dept_id=(select dept_id from dept where dept_name='CSE');
+```
+Views Defined Using Other Views
+```
+create view  custom as select * from dept_details where dept_id>=3;
+```
+## Cascading Actions in Referential Integrity
+```
+Create table course2(
+course_no varchar(20),
+course_name varchar(50),
+year_semister number(3),
+credit number(20,4),
+dept_id number(20),
+primary key(course_no),
+foreign key(dept_id) references dept(dept_id)
+on delete cascade
+);
+insert into dept2(dept_id,dept_name,faculty,no_of_student)values(7,'CSE','EE',120);
+insert into dept2(dept_id,dept_name,faculty,no_of_student)values(3,'EEE','EE',120);
+insert into dept2(dept_id,dept_name,faculty,no_of_student)values(1,'CE','CE',120);
+insert into dept2(dept_id,dept_name,faculty,no_of_student)values(5,'ME','ME',120);
+insert into dept2(dept_id,dept_name,faculty,no_of_student)values(2,'ECE','EE',60);
+
+insert into course2(course_no,course_name,year_semister,credit,dept_id)values('CSE1101','discreate math',11,3.00,7);
+insert into course2(course_no,course_name,year_semister,credit,dept_id)values('CSE3105','database systems',31,3.00,7);
+insert into course2(course_no,course_name,year_semister,credit,dept_id)values('EEE1101','Basic electrical engineering',11,3.00,3);
+insert into course2(course_no,course_name,year_semister,credit,dept_id)values('ME3101','solid mechanics',31,3.00,5);
+```
+
+```
+delete from dept2 where dept_id=5;
+```
+
+
