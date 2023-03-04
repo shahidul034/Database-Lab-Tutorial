@@ -287,3 +287,37 @@ The exists construct returns the value true if the argument subquery is nonempty
 select * from course where year_semister>=11 and exists(select * from dept where faculty like '%EE%');
 ```
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/exist.png)
+
+## String operations
+> percent ( % ).  The % character matches any substring.
+
+> underscore ( _ ).  The _ character matches any character.
+
+> Demo table.
+
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/table_test.png)
+
+> 'E%' matches any string beginning with “E”.
+
+```SELECT * FROM TEST WHERE NAME LIKE 'E%';```
+
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/begin.png)
+
+> '%E' matches any string ending with “E”.
+> 
+```SELECT * FROM TEST WHERE NAME LIKE '%E';```
+
+![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/end.png)
+
+> '%E%E%' contains with 'EE'.
+
+```SELECT * FROM TEST WHERE NAME LIKE '%E%E%';```
+
+> '_ _ _' matches any string of exactly three characters.
+
+```SELECT * FROM TEST WHERE NAME LIKE '___';```
+
+>  Below command matches any string of at least three characters and at most five characters.
+
+
+```SELECT * FROM TEST WHERE NAME LIKE '___' or NAME LIKE '____' or NAME LIKE '_____';```
