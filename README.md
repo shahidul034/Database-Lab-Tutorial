@@ -182,7 +182,7 @@ update course set course_name='Digital Electronics' where course_no='EEE1101';
 ## Deleting row from a table
 > We add an extra row to perform the delete operation in the dept table.
 ```
-insert into dept(dept_id,dept_name,faculty,no_of_student,location2)values(12,'URP','CE',60,'khulna');
+insert into dept(dept_id,dept_name,faculty,no_of_student)values(12,'URP','CE',60);
 ```
 > Now we delete the row from the dept table where dept_id is 12.
 
