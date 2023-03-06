@@ -390,5 +390,8 @@ insert into course2(course_no,course_name,year_semister,credit,dept_id)values('M
 ```
 delete from dept2 where dept_id=5;
 ```
-
-
+## Set line size and page size
+```
+set pagesize 100
+set linesize 200
+```
