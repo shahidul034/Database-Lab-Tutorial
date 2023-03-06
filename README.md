@@ -247,8 +247,8 @@ select sum(no_of_student) from dept;
  ```
 We can find max and min no. of students of any department from dept table.
  ```
- select avg(no_of_student) from dept;
- select avg(no_of_student) from dept;
+ select max(no_of_student) from dept;
+ select min(no_of_student) from dept;
 ```
 ## Group by and Having
 > Find the average of student according to faculty.
