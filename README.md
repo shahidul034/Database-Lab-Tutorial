@@ -122,6 +122,7 @@ insert into dept(dept_id,dept_name,faculty,no_of_student)values(7,'CSE','EE',120
 
 ## Insert the data in the table
 ```
+insert into dept(dept_id,dept_name,faculty,no_of_student)values(7,'CSE','EE',120);
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(3,'EEE','EE',120);
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(1,'CE','CE',120);
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(5,'ME','ME',120);
