@@ -374,6 +374,13 @@ create view  custom as select * from dept_details where dept_id>=3;
 ```
 ## Cascading Actions in Referential Integrity
 ```
+Create table dept2(
+dept_id number(20),
+dept_name varchar(30),
+faculty varchar(30),
+no_of_student number(20),
+primary key(dept_id)
+);
 Create table course2(
 course_no varchar(20),
 course_name varchar(50),
@@ -381,7 +388,7 @@ year_semister number(3),
 credit number(20,4),
 dept_id number(20),
 primary key(course_no),
-foreign key(dept_id) references dept(dept_id)
+foreign key(dept_id) references dept2(dept_id)
 on delete cascade
 );
 insert into dept2(dept_id,dept_name,faculty,no_of_student)values(7,'CSE','EE',120);
@@ -399,4 +406,27 @@ insert into course2(course_no,course_name,year_semister,credit,dept_id)values('M
 ```
 delete from dept2 where dept_id=5;
 ```
+## Constraints on a Single Relation
+```
+CREATE TABLE my_table (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    age INTEGER CHECK (age >= 18)
+);
+CREATE TABLE my_table2 (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    age INTEGER CHECK (age >= 18 AND age <= 120),
+    status VARCHAR(10) CHECK (status IN ('active', 'inactive', 'pending')),
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL CHECK (end_date > start_date),
+    CONSTRAINT check_age_status CHECK (
+        (status = 'active' AND age >= 18 AND age <= 65) OR
+        (status = 'inactive' AND age >= 18 AND age <= 120) OR
+        (status = 'pending' AND age >= 18 AND age <= 100)
+    )
+);
 
+```
