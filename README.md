@@ -13,6 +13,15 @@
 create user shakib034 identified by shakib034;
 grant all privileges to shakib034;
 ```
+## Set line size and page size
+```
+show pagesize
+show linesize
+```
+```
+set pagesize 100
+set linesize 200
+```
 ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/sqlplus2.png)
 ## Database project demo
 | ![](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/pic1.png) | 
@@ -390,8 +399,4 @@ insert into course2(course_no,course_name,year_semister,credit,dept_id)values('M
 ```
 delete from dept2 where dept_id=5;
 ```
-## Set line size and page size
-```
-set pagesize 100
-set linesize 200
-```
+
