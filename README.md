@@ -421,11 +421,12 @@ CREATE TABLE my_table2 (
     age INTEGER CHECK (age >= 18 AND age <= 120),
     status VARCHAR(10) CHECK (status IN ('active', 'inactive', 'pending')),
     start_date DATE NOT NULL,
-    end_date DATE NOT NULL CHECK (end_date > start_date),
+    end_date DATE NOT NULL,
     CONSTRAINT check_age_status CHECK (
         (status = 'active' AND age >= 18 AND age <= 65) OR
         (status = 'inactive' AND age >= 18 AND age <= 120) OR
-        (status = 'pending' AND age >= 18 AND age <= 100)
+        (status = 'pending' AND age >= 18 AND age <= 100) OR
+        (end_date > start_date)
     )
 );
 
