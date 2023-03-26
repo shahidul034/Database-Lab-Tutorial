@@ -561,5 +561,31 @@ BEGIN
         end if;
    END LOOP;
 END;
-
+```
+## Procedure
+```
+set serveroutput on
+create or replace procedure proc2(var1 In number,var2 out varchar) AS
+t_show char(30);
+begin
+t_show:='From procedure: ';
+select  course_name into var2 from course where course_no in(select course_no from relation  where book_no=var1);  
+dbms_output.put_line(t_show || var2 ||' code is '|| var1);
+end;
+/
+```
+```
+set serveroutput on
+declare 
+book_no book.book_no%type:=12;
+course_name course.course_name%type;
+begin
+proc2(book_no,course_name);
+end;
+/
+```
+## drop procedure
+> Stucture: drop procedure procedure_name
+```
+drop procedure proc2;
 ```
