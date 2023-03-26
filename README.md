@@ -564,23 +564,30 @@ END;
 ```
 ## Procedure
 ```
-set serveroutput on
-create or replace procedure proc2(var1 In number,var2 out varchar) AS
-t_show char(30);
-begin
-t_show:='From procedure: ';
-select  course_name into var2 from course where course_no in(select course_no from relation  where book_no=var1);  
-dbms_output.put_line(t_show || var2 ||' code is '|| var1);
-end;
+CREATE OR REPLACE PROCEDURE proc2(
+  var1 IN NUMBER,
+  var2 OUT VARCHAR2,
+  var3 IN OUT NUMBER
+)
+AS
+  t_show CHAR(30);
+BEGIN
+  t_show := 'From procedure: ';
+  SELECT course_name INTO var2 FROM course WHERE course_no IN (SELECT course_no FROM relation WHERE book_no = var1);
+  var3 := var1 + 1; 
+  DBMS_OUTPUT.PUT_LINE(t_show || var2 || ' code is ' || var1 || ' In out parameter: ' || var3);
+END;
 /
+
 ```
 ```
 set serveroutput on
 declare 
 book_no book.book_no%type:=12;
 course_name course.course_name%type;
+extra number;
 begin
-proc2(book_no,course_name);
+proc2(book_no,course_name,extra);
 end;
 /
 ```
@@ -588,4 +595,25 @@ end;
 > Stucture: drop procedure procedure_name
 ```
 drop procedure proc2;
+```
+## Function
+```
+set serveroutput on
+create or replace function fun(var1 in varchar) return varchar AS
+value dept.dept_name%type;
+begin
+  select dept_name into value from dept where dept_id=var1; 
+   return value;
+end;
+/
+```
+```
+set serveroutput on
+declare 
+value varchar(20);
+begin
+value:=fun(5);
+end;
+/
+
 ```
