@@ -431,3 +431,57 @@ CREATE TABLE my_table2 (
 );
 
 ```
+
+##PL/SQL variable declaration and print value
+```
+set serveroutput on
+declare 
+dept_id dept.dept_id%type;
+dept_name DEPT.DEPT_NAME%type;
+no_of_student number;
+begin
+select dept_id,dept_name,no_of_student into dept_id,dept_name,no_of_student from dept where dept_id=7;
+dbms_output.put_line('DEPT_id: '||dept_id|| ' DEPT_name: '||dept_name || ' no_of_student: '||no_of_student);
+end;
+/
+```
+## Insert and set default value 
+```
+set serveroutput on
+declare 
+dept_id dept.dept_id%type:=9;
+dept_name DEPT.DEPT_NAME%type:='MME';
+faculty dept.faculty%type:='ME';
+no_of_student number:=30;
+begin
+insert into dept values(dept_id,dept_name,faculty,no_of_student);
+end;
+/
+```
+##Row type
+```
+set serveroutput on
+declare 
+dept_row dept%rowtype;
+begin
+select dept_id,dept_name,no_of_student into dept_row.dept_id,dept_row.dept_name,dept_row.no_of_student from dept where dept_id=7;
+end;
+/
+```
+## Cursor
+```
+set serveroutput on
+declare 
+cursor dept_cursor is select * from dept;
+dept_row dept%rowtype;
+begin
+open dept_cursor;
+fetch dept_cursor into dept_row.dept_id,dept_row.dept_name,dept_row.faculty,dept_row.no_of_student;
+while dept_cursor%found loop
+dbms_output.put_line('DEPT_id: '||dept_row.dept_id|| ' DEPT_name: '||dept_row.dept_name || ' faculty: ' ||dept_row.faculty|| ' no_of_student: '||dept_row.no_of_student);
+fetch dept_cursor into dept_row.dept_id,dept_row.dept_name,dept_row.faculty,dept_row.no_of_student;
+end loop;
+close dept_cursor;
+end;
+/
+```
