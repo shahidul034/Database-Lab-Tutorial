@@ -591,11 +591,6 @@ proc2(book_no,course_name,extra);
 end;
 /
 ```
-## drop procedure
-> Stucture: drop procedure procedure_name
-```
-drop procedure proc2;
-```
 ## Function
 ```
 set serveroutput on
@@ -616,4 +611,11 @@ value:=fun(5);
 end;
 /
 
+```
+## drop procedure and function
+> Stucture: drop procedure procedure_name
+> Stucture: drop function function_name
+```
+drop procedure proc2;
+drop function fun;
 ```
