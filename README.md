@@ -432,7 +432,7 @@ CREATE TABLE my_table2 (
 
 ```
 
-##PL/SQL variable declaration and print value
+## PL/SQL variable declaration and print value
 ```
 set serveroutput on
 declare 
@@ -458,7 +458,7 @@ insert into dept values(dept_id,dept_name,faculty,no_of_student);
 end;
 /
 ```
-##Row type
+## Row type
 ```
 set serveroutput on
 declare 
@@ -468,7 +468,7 @@ select dept_id,dept_name,no_of_student into dept_row.dept_id,dept_row.dept_name,
 end;
 /
 ```
-## Cursor
+## Cursor and row count
 ```
 set serveroutput on
 declare 
@@ -479,9 +479,87 @@ open dept_cursor;
 fetch dept_cursor into dept_row.dept_id,dept_row.dept_name,dept_row.faculty,dept_row.no_of_student;
 while dept_cursor%found loop
 dbms_output.put_line('DEPT_id: '||dept_row.dept_id|| ' DEPT_name: '||dept_row.dept_name || ' faculty: ' ||dept_row.faculty|| ' no_of_student: '||dept_row.no_of_student);
+dbms_output.put_line('Row count: '|| dept_cursor%rowcount);
 fetch dept_cursor into dept_row.dept_id,dept_row.dept_name,dept_row.faculty,dept_row.no_of_student;
 end loop;
 close dept_cursor;
 end;
 /
+```
+## FOR LOOP/WHILE LOOP/ARRAY with extend() function
+```
+set serveroutput on
+declare 
+counter number;
+book_name2 book.book_name%type;
+TYPE NAMEARRAY IS VARRAY(5) OF book.book_name%type; 
+A_NAME NAMEARRAY:=NAMEARRAY();
+begin
+counter:=1;
+for x in 12..16  
+loop
+select book_name into book_name2 from book where book_no=x;
+A_NAME.EXTEND();
+A_NAME(counter):=book_name2;
+counter:=counter+1;
+end loop;
+counter:=1;
+WHILE counter<=A_NAME.COUNT 
+LOOP 
+DBMS_OUTPUT.PUT_LINE(A_NAME(counter)); 
+counter:=counter+1;
+END LOOP;
+end;
+/
+```
+## ARRAY without extend() function
+```
+DECLARE 
+   counter NUMBER := 1;
+   book_name2 book.book_name%TYPE;
+   TYPE NAMEARRAY IS VARRAY(5) OF book.book_name%TYPE;
+   A_NAME NAMEARRAY:=NAMEARRAY('Book 1', 'Book 2', 'Book 3', 'Book 4', 'Book 5'); 
+   -- VARRAY with a fixed size of 5 elements and initialized with book names
+BEGIN
+   counter := 1;
+   FOR x IN 12..16  
+   LOOP
+      SELECT book_name INTO book_name2 FROM book WHERE book_no=x;
+      A_NAME(counter) := book_name2;
+      counter := counter + 1;
+   END LOOP;
+   counter := 1;
+   WHILE counter <= A_NAME.COUNT 
+   LOOP 
+      DBMS_OUTPUT.PUT_LINE(A_NAME(counter)); 
+      counter := counter + 1;
+   END LOOP;
+END;
+
+```
+## IF /ELSEIF /ELSE
+```
+DECLARE 
+   counter NUMBER := 1;
+   book_name2 book.book_name%TYPE;
+   TYPE NAMEARRAY IS VARRAY(5) OF book.book_name%TYPE;
+   A_NAME NAMEARRAY:=NAMEARRAY('Book 1', 'Book 2', 'Book 3', 'Book 4', 'Book 5'); 
+   -- VARRAY with a fixed size of 5 elements and initialized with book names
+BEGIN
+   counter := 1;
+   FOR x IN 12..16  
+   LOOP
+      SELECT book_name INTO book_name2 FROM book WHERE book_no=x;
+      if book_name2='discreate math' 
+        then
+        dbms_output.put_line(book_name2||' is a '||'CSE course');
+        elsif book_name2='electrical engineering'  
+        then
+        dbms_output.put_line(book_name2||' is a '||'EEE course');
+        else 
+        dbms_output.put_line(book_name2||' is a '||'other dept course');
+        end if;
+   END LOOP;
+END;
+
 ```
