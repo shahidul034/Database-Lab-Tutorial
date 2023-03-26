@@ -203,6 +203,12 @@ delete from  dept where dept_id=12;
 ```
 select dept_name from dept where dept_name like 'E%' union select dept_name from dept where dept_name like '%M%';
 ```
+## With clause
+Calculates the maximum value of the no_of_student column from the dept table. The result of this subquery is a single row with a single column (val) containing the maximum value.
+```
+with max_student(val) as (select max(no_of_student) from dept)
+select * from dept,max_student where dept.no_of_student=max_student.val;
+```
 # Save the SQL command output
 ## Save the SQL command output in csv file
 > Simply change the folder path and your sql command.
