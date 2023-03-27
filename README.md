@@ -437,7 +437,8 @@ CREATE TABLE my_table2 (
 );
 
 ```
-
+## Toad for oracle download
+Download the ([Toad](https://www.quest.com/products/toad-for-oracle/software-downloads.aspx)) and install the software.
 ## PL/SQL variable declaration and print value
 ```
 set serveroutput on
