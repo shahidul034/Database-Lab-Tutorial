@@ -507,25 +507,25 @@ A_NAME NAMEARRAY:=NAMEARRAY();
 ```
 set serveroutput on
 declare 
-counter number;
-book_name2 book.book_name%type;
-TYPE NAMEARRAY IS VARRAY(5) OF book.book_name%type; 
-A_NAME NAMEARRAY:=NAMEARRAY();
+  counter number;
+  book_name2 book.book_name%type;
+  TYPE NAMEARRAY IS VARRAY(5) OF book.book_name%type; 
+  A_NAME NAMEARRAY:=NAMEARRAY();
 begin
-counter:=1;
-for x in 12..16  
-loop
-select book_name into book_name2 from book where book_no=x;
-A_NAME.EXTEND();
-A_NAME(counter):=book_name2;
-counter:=counter+1;
-end loop;
-counter:=1;
-WHILE counter<=A_NAME.COUNT 
-LOOP 
-DBMS_OUTPUT.PUT_LINE(A_NAME(counter)); 
-counter:=counter+1;
-END LOOP;
+  counter:=1;
+  for x in 12..16  
+  loop
+    select book_name into book_name2 from book where book_no=x;
+    A_NAME.EXTEND();
+    A_NAME(counter):=book_name2;
+    counter:=counter+1;
+  end loop;
+  counter:=1;
+  WHILE counter<=A_NAME.COUNT 
+    LOOP 
+    DBMS_OUTPUT.PUT_LINE(A_NAME(counter)); 
+    counter:=counter+1;
+  END LOOP;
 end;
 /
 ```
