@@ -554,6 +554,13 @@ BEGIN
 END;
 
 ```
+## ARRAY with extend() and without extend() function 
+The A_NAME.EXTEND() method is used to dynamically increase the size of the varray A_NAME at runtime by one element. When you use A_NAME.EXTEND(), you don't need to know the size of the varray in advance, and you can add elements to the varray as needed.
+
+On the other hand, if you declare the varray with a fixed size and initialize it with values at the beginning, you can assign values to the elements of the varray using the varray_name(index) := value syntax, as shown in the previous example. However, if you try to assign a value to an index that is beyond the fixed size of the varray, you will get a PLS-00302: component 'index' must be declared error.
+
+So the main difference between using and not using A_NAME.EXTEND() is that with A_NAME.EXTEND(), you can dynamically resize the varray as needed, while without it, the varray has a fixed size and you cannot add more elements than the declared size.
+
 ## IF /ELSEIF /ELSE
 ```
 DECLARE 
