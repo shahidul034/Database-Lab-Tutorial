@@ -495,6 +495,15 @@ end;
 /
 ```
 ## FOR LOOP/WHILE LOOP/ARRAY with extend() function
+
+```
+TYPE NAMEARRAY IS VARRAY(5) OF book.book_name%type;
+```
+> It defines a user-defined collection type named NAMEARRAY as a variable array of 5 elements, with each element being of the same data type as the book_name column in the book table.
+```
+A_NAME NAMEARRAY:=NAMEARRAY();
+```
+> It initializes a variable A_NAME of type NAMEARRAY.
 ```
 set serveroutput on
 declare 
