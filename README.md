@@ -634,8 +634,9 @@ begin
 value:=fun(5);
 end;
 /
-
 ```
+> A function must return a value and procedure cannot return a value.
+
 ## drop procedure and function
 > Stucture: drop procedure procedure_name
 > Stucture: drop function function_name
