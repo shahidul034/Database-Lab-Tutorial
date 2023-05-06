@@ -577,10 +577,10 @@ BEGIN
       if book_name2='discreate math' 
         then
         dbms_output.put_line(book_name2||' is a '||'CSE course');
-        elsif book_name2='electrical engineering'  
+      elsif book_name2='electrical engineering'  
         then
         dbms_output.put_line(book_name2||' is a '||'EEE course');
-        else 
+      else 
         dbms_output.put_line(book_name2||' is a '||'other dept course');
         end if;
    END LOOP;
