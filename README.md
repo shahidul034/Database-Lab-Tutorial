@@ -645,11 +645,15 @@ drop procedure proc2;
 drop function fun;
 ```
 ## Trigger
-> Enable keyword: The ENABLE keyword in the trigger code is used to ensure that the trigger is enabled after it is created/replaced.
-
-> If you do not include the ENABLE keyword in the trigger code, the trigger will still be created or replaced without any errors. However, it will be disabled by default. This means that the trigger will not fire when the specified event occurs on the associated table until you explicitly enable it using an ALTER TRIGGER statement.
-
-> So, if you omit the ENABLE keyword when creating or replacing the trigger, you will need to manually enable the trigger before it can take effect and perform its desired functionality.
+**Trigger body**
+```
+create trigger [trigger_name] 
+[before | after]  
+{insert | update | delete}  
+on [table_name]  
+[for each row]  
+[trigger_body] 
+```
 
 > This trigger is named "try" and is set to execute before each row is deleted from the "relation" table
 > The REFERENCING OLD AS o NEW AS n clause specifies that the trigger will reference the "old" values (i.e. the values before the deletion) as "o" and the "new" values (which do not exist in this case because it's a delete trigger) as "n".
@@ -684,7 +688,6 @@ END;
 ```
 
 ```
-/*<TOAD_FILE_CHUNK>*/
 SET SERVEROUTPUT ON
 CREATE OR REPLACE TRIGGER trigger_new
 after insert ON relation 
