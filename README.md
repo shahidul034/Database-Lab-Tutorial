@@ -674,6 +674,7 @@ END;
 
 > The trigger is set to fire after an update operation is performed on the "course" table.
 > For each row being updated, the trigger fires and updates the "book_name" column in the "book" table with the new course name (:n.course_name) where the "book_no" is present in the "relation" table for the corresponding old course number (:o.course_no).
+> 
 ```
 SET SERVEROUTPUT ON
 CREATE OR REPLACE TRIGGER trigger2
@@ -686,7 +687,9 @@ update book set book_name=:n.course_name where book_no in (select book_no from r
 END;
 /
 ```
+> This trigger is designed to execute after an insertion occurs in the "relation" table. It will update a related "book" table by incrementing the value of the "course_offering" field by 1, where the "book_no" matches the "book_no" of the newly inserted row.
 
+> The ":n.book_no" syntax refers to the "book_no" field in the newly inserted row (referenced as "n"). The "update" statement will modify the "book" table by incrementing the "course_offering" field by 1 for the row where the "book_no" matches the "book_no" of the newly inserted row.
 ```
 SET SERVEROUTPUT ON
 CREATE OR REPLACE TRIGGER trigger_new
