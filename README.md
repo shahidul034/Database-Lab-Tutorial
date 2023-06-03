@@ -644,3 +644,62 @@ end;
 drop procedure proc2;
 drop function fun;
 ```
+## Trigger
+> Enable keyword: The ENABLE keyword in the trigger code is used to ensure that the trigger is enabled after it is created/replaced.
+
+> If you do not include the ENABLE keyword in the trigger code, the trigger will still be created or replaced without any errors. However, it will be disabled by default. This means that the trigger will not fire when the specified event occurs on the associated table until you explicitly enable it using an ALTER TRIGGER statement.
+
+> So, if you omit the ENABLE keyword when creating or replacing the trigger, you will need to manually enable the trigger before it can take effect and perform its desired functionality.
+
+> This trigger is named "try" and is set to execute before each row is deleted from the "relation" table
+> The REFERENCING OLD AS o NEW AS n clause specifies that the trigger will reference the "old" values (i.e. the values before the deletion) as "o" and the "new" values (which do not exist in this case because it's a delete trigger) as "n".
+
+> Inside the trigger, there are two delete statements. The first statement deletes any rows from the "book" table where the "book_no" matches the value of "o.book_no" (i.e. the book number of the row being deleted from "relation"). The second statement deletes any rows from the "course" table where the "course_no" matches the value of "o.course_no" (i.e. the course number of the row being deleted from "relation").
+```
+SET SERVEROUTPUT ON
+CREATE OR REPLACE TRIGGER try
+BEFORE delete ON relation 
+REFERENCING OLD AS o NEW AS n
+FOR EACH ROW
+BEGIN
+delete from book where book_no=:o.book_no;
+delete from course where course_no=:o.course_no;
+END;
+/
+```
+
+> The trigger is set to fire after an update operation is performed on the "course" table.
+> For each row being updated, the trigger fires and updates the "book_name" column in the "book" table with the new course name (:n.course_name) where the "book_no" is present in the "relation" table for the corresponding old course number (:o.course_no).
+```
+SET SERVEROUTPUT ON
+CREATE OR REPLACE TRIGGER trigger2
+after update ON course 
+REFERENCING OLD AS o NEW AS n
+FOR EACH ROW
+Enable
+BEGIN
+update book set book_name=:n.course_name where book_no in (select book_no from relation where course_no=:o.course_no);
+END;
+/
+```
+
+```
+/*<TOAD_FILE_CHUNK>*/
+SET SERVEROUTPUT ON
+CREATE OR REPLACE TRIGGER trigger_new
+after insert ON relation 
+REFERENCING OLD AS o NEW AS n
+FOR EACH ROW
+Declare
+bok integer;
+BEGIN
+update book set course_offering=course_offering+1 where book_no=:n.book_no;
+END;
+/
+```
+
+```
+show errors;
+select * from user_triggers;
+drop trigger TRIGGER_NEW;
+```
