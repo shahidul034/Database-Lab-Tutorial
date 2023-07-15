@@ -709,3 +709,6 @@ show errors;
 select * from user_triggers;
 drop trigger TRIGGER_NEW;
 ```
+
+## Reference
+Silberschatz, A., Korth, H. F., & Sudarshan, S. (2023). Database System Concepts (7th ed.).
