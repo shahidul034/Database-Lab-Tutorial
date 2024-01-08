@@ -11,8 +11,28 @@
 > 4) You can create a new user because we use the system(administrator) as a user. Then, we will give the new user all privileges to perform all SQL tasks. Follow the figure.
 ```
 create user shakib034 identified by shakib034;
+```
+>  Granting system privileges
+> Here, we give all the privileges to the user.
+```
 grant all privileges to shakib034;
 ```
+> We can give specific privileges to the user.
+```
+grant create session to shakib034;
+```
+> Creating a role(Assigned system privileges)
+```
+create role cse2k15;
+grant create table, create session to cse2k15;
+grant cse2k20 to shakib034;
+```
+> Revoking System Privileges
+```
+revoke create table from shakib034;
+```
+
+![alt text](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/DIAGRAM%20PIC/system%20privileges.png)
 ## Set line size and page size
 ```
 show pagesize
