@@ -60,6 +60,25 @@ set linesize 200
 start C:\Users\andromeda\Desktop\file.sql
 ```
 ## Oracle data types
+> number(Precision,Scale)
+
+Precision:  total number of digits on either side of the decimal point
+
+Scale:  number of digits to the right of the decimal point
+
+> char vs varchar2 (varchar2: Variable-length character strings and char: Fixed-length character data)
+
+> Date format: DD-MON-YY
+```
+create table test(
+name varchar2(30),
+name2 char(3),
+roll number(3),
+GPA number(3,2),
+roll2 number,
+s_dob DATE
+);
+```
 Here is a link about the [oracle data types.](https://www.w3resource.com/oracle/oracle-data-types.php)
 ## Checking current user name
 ```
