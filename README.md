@@ -6,7 +6,7 @@
 
 > Open the SQL Plus. Write 'connect system' and use the password that you set in the installation process. Follow the below figure.
 
-![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/sqlplus.png)
+![alt text](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/DIAGRAM%20PIC/sqlplus.png)
 
 > You can create a new user because we use the system(administrator) as a user. Then, we will give the new user all privileges to perform all SQL tasks. Follow the figure.
 ## Creating user and giving system privileges
@@ -18,6 +18,7 @@ create user shakib034 identified by shakib034;
 ```
 grant all privileges to shakib034;
 ```
+![alt text](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/DIAGRAM%20PIC/sqlplus2.png)
 > We can give specific privileges to the user.
 ```
 grant create session to shakib034;
@@ -43,7 +44,6 @@ show linesize
 set pagesize 100
 set linesize 200
 ```
-![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/sqlplus2.png)
 ## Database project demo
 | ![](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/pic1.png) | 
 |:--:| 
