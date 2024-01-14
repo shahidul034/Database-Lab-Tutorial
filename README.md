@@ -9,14 +9,27 @@
 ![alt text](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/DIAGRAM%20PIC/sqlplus.png)
 
 > You can create a new user because we use the system(administrator) as a user. Then, we will give the new user all privileges to perform all SQL tasks. Follow the figure.
+> Change the password of the admin(system)
+```
+connect / as sysdba
+alter user system identified by [password]
+```
 ## Creating user and giving system privileges
 ```
 create user shakib034 identified by shakib034;
+```
+> Delete any user
+```
+DROP USER username;
 ```
 >  Granting system privileges
 > Here, we give all the privileges to the user.
 ```
 grant all privileges to shakib034;
+```
+> Reboke all the privileges from the user
+```
+revoke all privileges from user_name
 ```
 ![alt text](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/DIAGRAM%20PIC/sqlplus2.png)
 > We can give specific privileges to the user.
@@ -27,7 +40,7 @@ grant create session to shakib034;
 ```
 create role cse2k15;
 grant create table, create session to cse2k15;
-grant cse2k20 to shakib034;
+grant cse2k15 to shakib034;
 ```
 > Revoking System Privileges
 ```
