@@ -120,6 +120,11 @@ no_of_student number(20),
 primary key(dept_id)
 );
 ```
+## To see the last created table.
+```
+describe dept
+
+```
 > We also create a course, book and relation table.
 ```
 Create table course(
