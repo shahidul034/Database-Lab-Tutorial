@@ -120,7 +120,7 @@ no_of_student number(20),
 primary key(dept_id)
 );
 ```
-## To see the last created table.
+> To see the last created table.
 ```
 describe dept
 
