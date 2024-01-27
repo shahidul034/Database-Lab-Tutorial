@@ -268,19 +268,19 @@ with max_student(val) as (select max(no_of_student) from dept)
 select * from dept,max_student where dept.no_of_student=max_student.val;
 ```
 # Save the SQL command output
-## Save the SQL command output in csv file
+## Save the SQL command output in xml file
 > Simply change the folder path and your sql command.
 ```
 SET MARKUP XML ON
 SET HEADING OFF
 SET PAGESIZE 0
 SET FEEDBACK OFF
-SPOOL C:\Users\andromeda\Desktop\file.csv
+SPOOL C:\Users\andromeda\Desktop\file.xml
 SELECT *
 FROM dept;
 SPOOL OFF
 ```
-## Save the SQL command output in xml file
+## Save the SQL command output in CSV file
 > Simply change the folder path and your sql command.
 ```
 SET COLSEP ","
