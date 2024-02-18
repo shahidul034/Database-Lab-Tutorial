@@ -483,6 +483,12 @@ CREATE TABLE my_table2 (
 );
 
 ```
+> Insert data
+```
+insert into my_table values(1,'ss','ss@gmail.com',25);
+insert into my_table2 values(3,'ss','ss@gmail.com',25,'active','03-APR-2007','04-APR-2009');
+```
+
 # PL/SQL
 ## Toad for oracle download
 Download the ([Toad](https://www.quest.com/products/toad-for-oracle/software-downloads.aspx)) and install the software.
