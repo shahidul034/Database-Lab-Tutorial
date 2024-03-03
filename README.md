@@ -723,6 +723,9 @@ delete from course where course_no=:o.course_no;
 END;
 /
 ```
+```
+delete from relation where book_no=16;
+```
 
 > The trigger is set to fire after an update operation is performed on the "course" table.
 > For each row being updated, the trigger fires and updates the "book_name" column in the "book" table with the new course name (:n.course_name) where the "book_no" is present in the "relation" table for the corresponding old course number (:o.course_no).
@@ -738,6 +741,9 @@ BEGIN
 update book set book_name=:n.course_name where book_no in (select book_no from relation where course_no=:o.course_no);
 END;
 /
+```
+```
+update course set course_name='discrete math2' where course_no='CSE1101';
 ```
 > This trigger is designed to execute after an insertion occurs in the "relation" table. It will update a related "book" table by incrementing the value of the "course_offering" field by 1, where the "book_no" matches the "book_no" of the newly inserted row.
 
