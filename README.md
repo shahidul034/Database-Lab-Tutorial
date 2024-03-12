@@ -21,6 +21,12 @@ create user shakib034 identified by shakib034;
 > Delete any user
 ```
 DROP USER username;
+````
+>TO See all users
+```
+SELECT username FROM dba_users;
+Or
+SELECT username FROM all_users;
 ```
 >  Granting system privileges
 > Here, we give all the privileges to the user.
