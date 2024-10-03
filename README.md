@@ -1,4 +1,5 @@
-## Installation process
+## Lab 1
+### Installation process
 > Download the ([Oracle Database 21c Express Edition](https://www.oracle.com/database/technologies/xe-downloads.html)) or ([Oracle Database 11g Express Edition](https://www.oracle.com/database/technologies/xe-prior-release-downloads.html)) and install the software.
 > Remember the password during the installation because this password is used for connecting the database account.
 
@@ -14,7 +15,7 @@
 connect / as sysdba
 alter user system identified by [password]
 ```
-## Creating user and giving system privileges
+### Creating user and giving system privileges
 ```
 create user shakib034 identified by shakib034;
 ```
@@ -48,7 +49,7 @@ revoke create table from shakib034;
 ```
 
 ![alt text](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/DIAGRAM%20PIC/system%20privileges.png)
-## Set line size and page size
+### Set line size and page size
 ```
 show pagesize
 show linesize
@@ -57,7 +58,7 @@ show linesize
 set pagesize 100
 set linesize 200
 ```
-## Database project demo
+### Database project demo
 | ![](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/pic1.png) | 
 |:--:| 
 | *SCHEMA* |
@@ -68,12 +69,12 @@ set linesize 200
 | *ERD* |
 <!-- ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/P4.png) -->
 <!-- ![alt text](https://github.com/shahidul034/database-project/blob/master/DIAGRAM%20PIC/p2.png) -->
-## Run the SQL command
+### Run the SQL command
 > You can run SQL script by using the SQL command line. Besides, you can write your SQL command in a txt file and save the txt file as a SQL extension. Then, type the below command in the SQL command line.
 ```
 start C:\Users\andromeda\Desktop\file.sql
 ```
-## Oracle data types
+### Oracle data types
 > number(Precision,Scale)
 
 Precision:  total number of digits on either side of the decimal point
@@ -94,15 +95,15 @@ s_dob DATE
 );
 ```
 Here is a link about the [oracle data types.](https://www.w3resource.com/oracle/oracle-data-types.php)
-## Checking current user name
+### Checking current user name
 ```
 show user
 ```
-## Checking the existing table in database.
+### Checking the existing table in database.
 ```
 select table_name from user_tables;
 ```
-
+## Lab 2
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/show_table_name.png)
 
 > It shows that we already have two tables in my database. So we need to drop those tables from the database for a fresh start. You can use this command to drop any table.
@@ -154,40 +155,40 @@ foreign key (course_no) references course(course_no)
 ```
 > When you observe the course table, they have another foreign key keyword referencing the dept_id from the "dept" table. We insert something in the course table. We must check whether this dept_id exists in the "dept" table.
 
-# DDL
-## Add column in the table
+### DDL
+### Add column in the table
 > We add a column in the dept table which is location.
 > 
 > Command structure: alter table **table_name** add **column_name** **column_definition**;
 ```
 alter table dept add location char(20);
 ```
-## Modify column definition in the table
+### Modify column definition in the table
 > Command structure: alter table **table_name** modify **column_name** **column_definition**;
 > 
 > We modify the location data types char(20) to varchar(23);
 ```
 alter table dept modify location varchar(23);
 ```
-## Rename the column name
+### Rename the column name
 > Command structure: alter table **table_name** rename **column_name** to **column_name**;
 ```
 alter table dept rename column location to location2;
 ```
-## Drop the column from table
+### Drop the column from table
 > Command structure: alter table **table_name** drop column **column_name**;
 ```
 alter table dept drop column location2;
 ```
-# DML
-## Insert the data in our table
+### DML
+### Insert the data in our table
 ```
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(7,'CSE','EE',120);
 ```
 > Here, "dept" refers to the table name, and we also insert values according to table columns.
 > We also insert values into the other tables.
 
-## Insert the data in the table
+### Insert the data in the table
 ```
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(3,'EEE','EE',120);
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(1,'CE','CE',120);
@@ -224,7 +225,7 @@ insert into course(course_no,course_name,year_semister,credit,dept_id)values('MM
 > The course table refers to the dept table, and course id "9" does not exist in the dept table. So, it shows this error.
 
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/error.png)
-## Displaying table data using SELECT command
+### Displaying table data using SELECT command
 > Now, we find the rows from the "dept" table, which have 120 students using the select command.
 
 ```
@@ -240,13 +241,13 @@ select * from dept where dept_id=(select dept_id from course where course_name='
 
 > Here, we add extra select command by adding an additional condition to find the dept_id in the "dept" table. This type of query is called a subquery.
 
-## Updating the data in a table
+### Updating the data in a table
 > Now we want to update the value of the course name from the course table where course_no is "EEE1101";
 > Command structure: update table_name set column_name=value where condition;
 ```
 update course set course_name='Digital Electronics' where course_no='EEE1101';
 ```
-## Deleting row from a table
+### Deleting row from a table
 > We add an extra row to perform the delete operation in the dept table.
 ```
 insert into dept(dept_id,dept_name,faculty,no_of_student)values(12,'URP','CE',60);
@@ -257,18 +258,19 @@ insert into dept(dept_id,dept_name,faculty,no_of_student)values(12,'URP','CE',60
 ```
 delete from  dept where dept_id=12;
 ```
-## union, intersect, and except
+### union, intersect, and except
 ```
 select dept_name from dept where dept_name like 'E%' union select dept_name from dept where dept_name like '%M%';
 ```
-## With clause
+### With clause
 Calculates the maximum value of the no_of_student column from the dept table. The result of this subquery is a single row with a single column (val) containing the maximum value.
 ```
 with max_student(val) as (select max(no_of_student) from dept)
 select * from dept,max_student where dept.no_of_student=max_student.val;
 ```
-# Save the SQL command output
-## Save the SQL command output in CSV file
+### Save the SQL command output
+You can save the SQL command in different format.
+#### Save the SQL command output in CSV file
 > Simply change the folder path and your sql command.
 ```
 SET COLSEP ","
@@ -280,7 +282,7 @@ SELECT *
 FROM dept;
 SPOOL OFF
 ```
-## Save the SQL command output in txt file
+#### Save the SQL command output in txt file
 > Simply change the folder path and your sql command.
 ```
 SPOOL C:\Users\andromeda\Desktop\file.txt
@@ -288,7 +290,8 @@ SELECT *
 FROM dept;
 SPOOL OFF
 ```
-## Aggregate function
+## Lab 3
+### Aggregate function
 We count how many row exist in dept table.
 ```
 select count(*) from dept;
@@ -311,7 +314,7 @@ We can find max and min no. of students of any department from dept table.
  select max(no_of_student) from dept;
  select min(no_of_student) from dept;
 ```
-## Group by and Having
+### Group by and Having
 > Find the average of student according to faculty.
 ```
 select faculty,avg(no_of_student) from dept group by faculty;
@@ -325,18 +328,18 @@ select faculty,avg(no_of_student) from dept group by faculty;
  ```
  ![alt text](https://github.com/shahidul034/BookList_database-project/blob/master/DIAGRAM%20PIC/having.png)
  
- ## Nested subquery
+ ### Nested subquery
  > Find the department name where the “rosen”(author) book is taught.
 ```
  select dept_name from dept where dept_id=(select dept_id from course where course_no=(select course_no from relation where book_no=(select book_no from book where author='rosen')));
 ```
  ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/subquery2.png)
-## Set Membership(AND, OR,NOT)
+### Set Membership(AND, OR,NOT)
 Find the rows where faculty is "EE" and "CSE" string exists in course_no.
 ```
 select * from dept where faculty='EE' and dept_id in (select dept_id from course where course_no like '%CSE%')
 ```
-## some/all/exists/unique
+### some/all/exists/unique
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/some.png)
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/all.png)
 ```
@@ -348,8 +351,8 @@ The exists construct returns the value true if the argument subquery is nonempty
 select * from course where year_semister>=11 and exists(select * from dept where faculty like '%EE%');
 ```
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/exist.png)
-
-## String operations
+## Lab 4
+### String operations
 > percent ( % ).  The % character matches any substring.
 
 > underscore ( _ ).  The _ character matches any character.
@@ -384,8 +387,8 @@ SELECT * FROM TEST WHERE NAME LIKE '___';
 
 
 ```SELECT * FROM TEST WHERE NAME LIKE '___' or NAME LIKE '____' or NAME LIKE '_____';```
-
-## Join operations
+## Lab 4
+### Join operations
 
 ```
 select * from dept natural join course where dept_id=7;
@@ -408,7 +411,7 @@ select dept_name,course_name from dept right outer join course using(dept_id);
 select dept_name,course_name from dept full outer join course using(dept_id);
 select dept_name,course_name from dept left outer join course on dept.dept_id=course.dept_id;
 ```
-## Views
+### Views
 View definition is not the same as creating a new relation by evaluating the query expression.
 
 A view of dept without their faculty,no_of_student.
@@ -424,7 +427,8 @@ Views Defined Using Other Views
 ```
 create view  custom as select * from dept_details where dept_id>=3;
 ```
-## Cascading Actions in Referential Integrity
+## Lab 5
+### Cascading Actions in Referential Integrity
 ```
 Create table dept2(
 dept_id number(20),
@@ -458,7 +462,7 @@ insert into course2(course_no,course_name,year_semister,credit,dept_id)values('M
 ```
 delete from dept2 where dept_id=5;
 ```
-## Constraints on a Single Relation
+### Constraints on a Single Relation
 ```
 CREATE TABLE my_table (
     id INTEGER PRIMARY KEY,
@@ -488,11 +492,11 @@ CREATE TABLE my_table2 (
 insert into my_table values(1,'ss','ss@gmail.com',25);
 insert into my_table2 values(3,'ss','ss@gmail.com',25,'active','03-APR-2007','04-APR-2009');
 ```
-
-# PL/SQL
-## Toad for oracle download
+## Lab 7
+### PL/SQL
+### Toad for oracle download
 Download the ([Toad](https://www.quest.com/products/toad-for-oracle/software-downloads.aspx)) and install the software.
-## PL/SQL variable declaration and print value
+### PL/SQL variable declaration and print value
 ```
 set serveroutput on
 declare 
@@ -505,7 +509,7 @@ dbms_output.put_line('DEPT_id: '||dept_id|| ' DEPT_name: '||dept_name || ' no_of
 end;
 /
 ```
-## Insert and set default value 
+### Insert and set default value 
 ```
 set serveroutput on
 declare 
@@ -518,7 +522,7 @@ insert into dept values(dept_id,dept_name,faculty,no_of_student);
 end;
 /
 ```
-## Row type
+### Row type
 ```
 set serveroutput on
 declare 
@@ -528,7 +532,7 @@ select dept_id,dept_name,no_of_student into dept_row.dept_id,dept_row.dept_name,
 end;
 /
 ```
-## Cursor and row count
+### Cursor and row count
 ```
 set serveroutput on
 declare 
@@ -546,7 +550,8 @@ close dept_cursor;
 end;
 /
 ```
-## FOR LOOP/WHILE LOOP/ARRAY with extend() function
+## Lab 8
+### FOR LOOP/WHILE LOOP/ARRAY with extend() function
 
 ```
 TYPE NAMEARRAY IS VARRAY(5) OF book.book_name%type;
@@ -581,7 +586,7 @@ begin
 end;
 /
 ```
-## ARRAY without extend() function
+### ARRAY without extend() function
 ```
 DECLARE 
    counter NUMBER := 1;
@@ -606,14 +611,14 @@ BEGIN
 END;
 
 ```
-## ARRAY with extend() and without extend() function 
+### ARRAY with extend() and without extend() function 
 The A_NAME.EXTEND() method is used to dynamically increase the size of the varray A_NAME at runtime by one element. When you use A_NAME.EXTEND(), you don't need to know the size of the varray in advance, and you can add elements to the varray as needed.
 
 On the other hand, if you declare the varray with a fixed size and initialize it with values at the beginning, you can assign values to the elements of the varray using the varray_name(index) := value syntax, as shown in the previous example. However, if you try to assign a value to an index that is beyond the fixed size of the varray, you will get a PLS-00302: component 'index' must be declared error.
 
 So the main difference between using and not using A_NAME.EXTEND() is that with A_NAME.EXTEND(), you can dynamically resize the varray as needed, while without it, the varray has a fixed size and you cannot add more elements than the declared size.
 
-## IF /ELSEIF /ELSE
+### IF /ELSEIF /ELSE
 ```
 DECLARE 
    counter NUMBER := 1;
@@ -638,7 +643,8 @@ BEGIN
    END LOOP;
 END;
 ```
-## Procedure
+## Lab 9
+### Procedure
 ```
 CREATE OR REPLACE PROCEDURE proc2(
   var1 IN NUMBER,
@@ -667,7 +673,7 @@ proc2(book_no,course_name,extra);
 end;
 /
 ```
-## Function
+### Function
 ```
 set serveroutput on
 create or replace function fun(var1 in varchar) return varchar AS
@@ -689,15 +695,16 @@ end;
 ```
 > A function must return a value and procedure cannot return a value.
 
-## drop procedure and function
+### drop procedure and function
 > Stucture: drop procedure procedure_name
 > Stucture: drop function function_name
 ```
 drop procedure proc2;
 drop function fun;
 ```
-## Trigger
-**Trigger body**
+## Lab 10
+### Trigger
+#### Trigger body
 ```
 create trigger [trigger_name] 
 [before | after]  
