@@ -258,6 +258,7 @@ insert into dept(dept_id,dept_name,faculty,no_of_student)values(12,'URP','CE',60
 ```
 delete from  dept where dept_id=12;
 ```
+## Lab 3
 ### union, intersect, and except
 ```
 select dept_name from dept where dept_name like 'E%' union select dept_name from dept where dept_name like '%M%';
@@ -290,7 +291,7 @@ SELECT *
 FROM dept;
 SPOOL OFF
 ```
-## Lab 3
+## Lab 4
 ### Aggregate function
 We count how many row exist in dept table.
 ```
@@ -351,7 +352,7 @@ The exists construct returns the value true if the argument subquery is nonempty
 select * from course where year_semister>=11 and exists(select * from dept where faculty like '%EE%');
 ```
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/exist.png)
-## Lab 4
+## Lab 5
 ### String operations
 > percent ( % ).  The % character matches any substring.
 
@@ -387,7 +388,7 @@ SELECT * FROM TEST WHERE NAME LIKE '___';
 
 
 ```SELECT * FROM TEST WHERE NAME LIKE '___' or NAME LIKE '____' or NAME LIKE '_____';```
-## Lab 4
+## Lab 6
 ### Join operations
 
 ```
@@ -427,7 +428,7 @@ Views Defined Using Other Views
 ```
 create view  custom as select * from dept_details where dept_id>=3;
 ```
-## Lab 5
+## Lab 6
 ### Cascading Actions in Referential Integrity
 ```
 Create table dept2(
