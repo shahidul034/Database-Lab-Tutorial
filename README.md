@@ -1,16 +1,16 @@
 ## Contents
 | #Lab  | Topics name |
 | ------------- | ------------- |
-| 1 | ✔[Lab 1](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab1.md) |
-| 2 | ✔[Lab 2](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab2.md) |
-| 3 | ✔[Lab 3](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab3.md) |
-| 4 | ✔[Lab 4](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab4.md)|
-| 5 | ✔[Lab 5](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab5.md) |
-| 6 | ✔[Lab 6](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab5.md) |
-| 7 | ✔[Lab 7](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab5.md)|
-| 8 | ✔[Lab 8](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab5.md) |
-| 9 | ✔[Lab 9](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab5.md) |
-| 10 | ✔[Lab 10](https://github.com/shahidul034/Data-Structures-and-Algorithm-Tutorial/blob/main/lecture/lab5.md) |
+| 1 | ✔[Lab 1 - Installation, creating user and giving system privileges](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-1) |
+| 2 | ✔[Lab 2 - DDL](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-2) |
+| 3 | ✔[Lab 3 - DML](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-3) |
+| 4 | ✔[Lab 4 - Aggregate function, group by, nested subquery, set](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-4)|
+| 5 | ✔[Lab 5 - String operations](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-5) |
+| 6 | ✔[Lab 6 - Join, view and referential integrity](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-6) |
+| 7 | ✔[Lab 7 - PL/SQL (declaration, insert, set value, rowtype and cursor)](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-7)|
+| 8 | ✔[Lab 8 - PL/SQL (Loop, array and IF-ELSE)](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-8) |
+| 9 | ✔[Lab 9 - Procedure and function](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-9) |
+| 10 | ✔[Lab 10 - Trigger](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-10) |
 
 ## 🎯Lab 1
 ### 🚀Installation process
