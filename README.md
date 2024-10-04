@@ -1,5 +1,5 @@
-## Lab 1
-### Installation process
+## 🎯Lab 1
+### 🚀Installation process
 > Download the ([Oracle Database 21c Express Edition](https://www.oracle.com/database/technologies/xe-downloads.html)) or ([Oracle Database 11g Express Edition](https://www.oracle.com/database/technologies/xe-prior-release-downloads.html)) and install the software.
 > Remember the password during the installation because this password is used for connecting the database account.
 
@@ -103,7 +103,7 @@ show user
 ```
 select table_name from user_tables;
 ```
-## Lab 2
+## 🎯Lab 2
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/show_table_name.png)
 
 > It shows that we already have two tables in my database. So we need to drop those tables from the database for a fresh start. You can use this command to drop any table.
@@ -180,6 +180,7 @@ alter table dept rename column location to location2;
 ```
 alter table dept drop column location2;
 ```
+## 🎯Lab 3
 ### DML
 ### Insert the data in our table
 ```
@@ -225,6 +226,7 @@ insert into course(course_no,course_name,year_semister,credit,dept_id)values('MM
 > The course table refers to the dept table, and course id "9" does not exist in the dept table. So, it shows this error.
 
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/error.png)
+
 ### Displaying table data using SELECT command
 > Now, we find the rows from the "dept" table, which have 120 students using the select command.
 
@@ -258,7 +260,7 @@ insert into dept(dept_id,dept_name,faculty,no_of_student)values(12,'URP','CE',60
 ```
 delete from  dept where dept_id=12;
 ```
-## Lab 3
+
 ### union, intersect, and except
 ```
 select dept_name from dept where dept_name like 'E%' union select dept_name from dept where dept_name like '%M%';
@@ -291,7 +293,7 @@ SELECT *
 FROM dept;
 SPOOL OFF
 ```
-## Lab 4
+## 🎯Lab 4
 ### Aggregate function
 We count how many row exist in dept table.
 ```
@@ -352,7 +354,7 @@ The exists construct returns the value true if the argument subquery is nonempty
 select * from course where year_semister>=11 and exists(select * from dept where faculty like '%EE%');
 ```
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/exist.png)
-## Lab 5
+## 🎯Lab 5
 ### String operations
 > percent ( % ).  The % character matches any substring.
 
@@ -388,7 +390,7 @@ SELECT * FROM TEST WHERE NAME LIKE '___';
 
 
 ```SELECT * FROM TEST WHERE NAME LIKE '___' or NAME LIKE '____' or NAME LIKE '_____';```
-## Lab 6
+## 🎯Lab 6
 ### Join operations
 
 ```
@@ -428,7 +430,6 @@ Views Defined Using Other Views
 ```
 create view  custom as select * from dept_details where dept_id>=3;
 ```
-## Lab 6
 ### Cascading Actions in Referential Integrity
 ```
 Create table dept2(
@@ -493,7 +494,7 @@ CREATE TABLE my_table2 (
 insert into my_table values(1,'ss','ss@gmail.com',25);
 insert into my_table2 values(3,'ss','ss@gmail.com',25,'active','03-APR-2007','04-APR-2009');
 ```
-## Lab 7
+## 🎯Lab 7
 ### PL/SQL
 ### Toad for oracle download
 Download the ([Toad](https://www.quest.com/products/toad-for-oracle/software-downloads.aspx)) and install the software.
@@ -551,7 +552,7 @@ close dept_cursor;
 end;
 /
 ```
-## Lab 8
+## 🎯Lab 8
 ### FOR LOOP/WHILE LOOP/ARRAY with extend() function
 
 ```
@@ -644,7 +645,7 @@ BEGIN
    END LOOP;
 END;
 ```
-## Lab 9
+## 🎯Lab 9
 ### Procedure
 ```
 CREATE OR REPLACE PROCEDURE proc2(
@@ -703,7 +704,7 @@ end;
 drop procedure proc2;
 drop function fun;
 ```
-## Lab 10
+## 🎯Lab 10
 ### Trigger
 #### Trigger body
 ```
