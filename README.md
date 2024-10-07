@@ -7,7 +7,7 @@
 | 4 | ✔[Lab 4 - Aggregate function, group by, nested subquery, set](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-4)|
 | 5 | ✔[Lab 5 - String operations](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-5) |
 | 6 | ✔[Lab 6 - Join, view and referential integrity](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-6) |
-| 7 | ✔[Lab 7 - PL/SQL (declaration, insert, set value, rowtype and cursor)](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-7)|
+| 7 | ✔[Lab 7 - PL/SQL (Declaration, insert, set value, rowtype and cursor)](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-7)|
 | 8 | ✔[Lab 8 - PL/SQL (Loop, array and IF-ELSE)](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-8) |
 | 9 | ✔[Lab 9 - Procedure and function](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-9) |
 | 10 | ✔[Lab 10 - Trigger](https://github.com/shahidul034/Database-Lab-Tutorial/blob/main/README.md#lab-10) |
