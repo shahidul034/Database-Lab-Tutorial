@@ -143,6 +143,12 @@ SHOW USER
 SELECT table_name FROM user_tables;
 ```
 
+### Lab 1 exercise
+
+1. Create a user named `lab_student` with a secure password.
+2. Grant the user permission to create a session and tables.
+3. Connect as `lab_student`, then display the current user and existing tables.
+
 ## Lab 2: Data Definition Language (DDL)
 
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/show_table_name.png)
@@ -235,6 +241,13 @@ ALTER TABLE dept RENAME COLUMN location TO location2;
 ```sql
 ALTER TABLE dept DROP COLUMN location2;
 ```
+
+### Lab 2 exercise
+
+Create a `student` table with `student_id`, `student_name`, `email`, and
+`dept_id` columns. Make `student_id` the primary key, make `email` unique, and
+reference `dept.dept_id` with a foreign key. Then add and remove a `phone`
+column.
 
 ## Lab 3: Data Manipulation Language (DML)
 
@@ -412,6 +425,12 @@ FROM dept;
 SPOOL OFF
 ```
 
+### Lab 3 exercise
+
+1. Insert two rows into the `student` table from Lab 2.
+2. Update one student's email address.
+3. Delete one student and query the table to verify the result.
+
 ## Lab 4: Aggregate functions and subqueries
 
 ### Aggregate functions
@@ -539,6 +558,14 @@ WHERE c.year_semester >= 11
 
 ![alt text](https://github.com/shahidul034/database2k19/blob/main/DIAGRAM%20PIC/exist.png)
 
+### Lab 4 exercise
+
+Write queries that:
+
+1. Count the courses offered by each department.
+2. Show only departments offering more than one course.
+3. Find the department with the largest number of students using a subquery.
+
 ## Lab 5: String operations
 
 The `LIKE` operator uses two wildcard characters:
@@ -587,6 +614,14 @@ WHERE name LIKE '___'
    OR name LIKE '____'
    OR name LIKE '_____';
 ```
+
+### Lab 5 exercise
+
+Using the `test` table, find names that:
+
+1. Begin with `S`.
+2. End with `a`.
+3. Contain exactly five characters.
 
 ## Lab 6: Joins, views, and referential integrity
 
@@ -745,6 +780,13 @@ VALUES (
 );
 ```
 
+### Lab 6 exercise
+
+1. Write a join that displays each course with its department name.
+2. Create a view named `course_details` from that query.
+3. Insert a temporary parent and child row, delete the parent, and observe the
+   effect of `ON DELETE CASCADE`.
+
 ## Lab 7: PL/SQL basics and cursors
 
 You can run these examples in SQL*Plus, Oracle SQL Developer, or
@@ -829,6 +871,12 @@ BEGIN
 END;
 /
 ```
+
+### Lab 7 exercise
+
+Write an anonymous PL/SQL block that uses `%ROWTYPE` to retrieve department
+`3`, prints its name and faculty, and uses a cursor to print every course
+offered by that department.
 
 ## Lab 8: PL/SQL loops, arrays, and conditions
 
@@ -939,6 +987,12 @@ END;
 /
 ```
 
+### Lab 8 exercise
+
+Create a VARRAY containing three department names. Use a loop and an
+`IF`/`ELSIF`/`ELSE` statement to label each department as `Engineering`,
+`Science`, or `Other`, then print the result.
+
 ## Lab 9: Procedures and functions
 
 ### Procedure
@@ -1026,6 +1080,13 @@ parameters.
 drop procedure proc2;
 drop function get_dept_name;
 ```
+
+### Lab 9 exercise
+
+1. Create a procedure that accepts a department ID and prints its name.
+2. Create a function that accepts a department ID and returns its student
+   count.
+3. Call both programs from an anonymous PL/SQL block.
 
 ## Lab 10: Triggers
 
@@ -1126,6 +1187,12 @@ SHOW ERRORS
 SELECT * FROM user_triggers;
 DROP TRIGGER trigger_new;
 ```
+
+### Lab 10 exercise
+
+Create an audit table and an `AFTER UPDATE` trigger that records a course's old
+name, new name, update time, and the user who made the change. Update one course
+and query the audit table to verify the trigger.
 
 ## Reference
 
